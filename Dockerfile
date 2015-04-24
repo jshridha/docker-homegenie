@@ -3,7 +3,7 @@ FROM phusion/baseimage
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
 
-RUN apt-get update && apt-get install -y gdebi-core lsusb && apt-get clean -y
+RUN apt-get update && apt-get install -y gdebi-core usbutils && apt-get clean -y
 
 ADD homegenie-beta_1.00.r484_all.deb /tmp/
 

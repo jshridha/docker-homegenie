@@ -7,6 +7,8 @@ RUN apt-get update && apt-get install -y gdebi-core usbutils && apt-get clean -y
 
 ADD homegenie-beta_1.00.r484_all.deb /tmp/
 
+VOLUME /usr/local/bin/homegenie
+
 RUN gdebi --non-interactive /tmp/homegenie-beta_1.00.r484_all.deb 
 
 RUN mkdir /etc/service/homegenie
@@ -17,5 +19,3 @@ RUN chmod +x /etc/service/homegenie/run
 
 # cleanup
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-VOLUME /usr/local/bin/homegenie
